@@ -1,1 +1,1 @@
-# Interfaz-Android
+# Se realizó una interfaz visual sin funcionalidades
