@@ -1,6 +1,7 @@
 package com.example.interfaz.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -16,12 +17,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun PantallaRegistro() {
+fun PantallaRegistro(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -73,7 +78,7 @@ fun PantallaRegistro() {
             )
 
             Spacer(modifier = Modifier.height(16.dp))
-            
+
             Text(
                 text = "Email",
                 fontSize = 13.sp,
@@ -196,15 +201,17 @@ fun PantallaRegistro() {
                     text = "Login",
                     fontSize = 13.sp,
                     color = Color(0xFF5C4DB1),
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.clickable { navController.navigate("inicio_sesion") }
                 )
             }
         }
     }
 }
 
-@Preview(showBackground = true, showSystemUi = false)
+
+@Preview(showBackground = true)
 @Composable
 fun PreviewRegistro() {
-    PantallaRegistro()
+    PantallaRegistro(navController = rememberNavController())
 }

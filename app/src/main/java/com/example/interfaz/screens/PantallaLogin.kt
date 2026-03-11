@@ -1,7 +1,5 @@
 package com.example.interfaz.screens
 
-
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -18,13 +16,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.interfaz.R
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun PantallaLogin() {
+fun PantallaLogin(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -69,7 +71,7 @@ fun PantallaLogin() {
             Spacer(modifier = Modifier.height(40.dp))
 
             Button(
-                onClick = { },
+                onClick = { navController.navigate("inicio_sesion") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(55.dp),
@@ -89,7 +91,7 @@ fun PantallaLogin() {
             Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedButton(
-                onClick = { },
+                onClick = { navController.navigate("registro") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(55.dp),
@@ -154,8 +156,8 @@ fun PantallaLogin() {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = false)
+@Preview(showBackground = true)
 @Composable
-fun PreviewPantallaPrincipal() {
-    PantallaLogin()
+fun PreviewPantallaLogin() {
+    PantallaLogin(navController = rememberNavController())
 }
