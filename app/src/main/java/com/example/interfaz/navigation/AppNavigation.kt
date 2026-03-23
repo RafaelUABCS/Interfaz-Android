@@ -22,5 +22,9 @@ fun AppNavigation() {
         composable("registro") {
             PantallaRegistro(navController)
         }
+
+        composable("registro") {
+            PantallaRegistro(navController)
+        }
     }
 }
